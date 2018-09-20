@@ -34,7 +34,7 @@
     <column id="COL8" populated="true" UUID="93abc4f4-29eb-4841-b3ed-56bfea566b5c" autoIncrement="false" autoIncrementSequenceName="ASN3_ASN3Id_seq" defaultValue="" name="ASN3Id" nullable="0" physicalName="ASN3Id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL9" populated="true" UUID="2550e410-9e44-4166-b787-16a17b3c49e5" autoIncrement="false" autoIncrementSequenceName="Artifact_AdditionalDescription_seq" defaultValue="" name="AdditionalDescription" nullable="1" physicalName="AdditionalDescription" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2005" userDefinedTypeUUID="9c22ed40-2868-4d9e-96ca-789234a53c8f" >
+    <column id="COL9" populated="true" UUID="2550e410-9e44-4166-b787-16a17b3c49e5" autoIncrement="false" autoIncrementSequenceName="Artifact_AdditionalDescription_seq" defaultValue="" name="AdditionalDescription" nullable="0" physicalName="AdditionalDescription" precision="2000" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL10" populated="true" UUID="c7b79fc0-8b50-4631-a6e8-dc9d1d522a92" autoIncrement="false" autoIncrementSequenceName="Artifact_Quantity_seq" defaultValue="" name="Quantity" nullable="0" physicalName="Quantity" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -49,7 +49,7 @@
     <column id="COL13" populated="true" UUID="2db9360d-a395-436a-9167-913b43853305" autoIncrement="false" autoIncrementSequenceName="Artifact_DateAnalyzed_seq" defaultValue="" name="DateAnalyzed" nullable="0" physicalName="DateAnalyzed" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="91" userDefinedTypeUUID="ee349be3-6af2-46e1-b305-975f5354b009" >
      <remarks></remarks>
     </column>
-    <column id="COL14" populated="true" UUID="44f70e3e-2917-46a4-b951-d28307dd6d88" autoIncrement="false" autoIncrementSequenceName="Artifact_Notes_seq" defaultValue="" name="Notes" nullable="1" physicalName="Notes" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="2005" userDefinedTypeUUID="9c22ed40-2868-4d9e-96ca-789234a53c8f" >
+    <column id="COL14" populated="true" UUID="44f70e3e-2917-46a4-b951-d28307dd6d88" autoIncrement="false" autoIncrementSequenceName="Artifact_Notes_seq" defaultValue="" name="Notes" nullable="0" physicalName="Notes" precision="2000" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     <column id="COL15" populated="true" UUID="cd132358-73c0-43c4-a8cd-85ccc27a459c" autoIncrement="false" autoIncrementSequenceName="Artifact_ImageKey_seq" defaultValue="" name="ImageKey" nullable="1" physicalName="ImageKey" precision="50" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
@@ -230,7 +230,7 @@
   <table id="TAB60" populated="true" UUID="b76bcdec-8639-40c9-9f7a-cc5589b90886" name="SiteInfo" objectType="TABLE" physicalName="SiteInfo" >
    <remarks></remarks>
    <folder id="FOLTAB601" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL61" populated="true" UUID="7c0e39a1-97dc-42a5-809c-053e4736e7a3" autoIncrement="true" autoIncrementSequenceName="SiteInfo_SiteInfoId_seq_1" defaultValue="" name="SiteInfoId" nullable="0" physicalName="SiteInfoId" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL61" populated="true" UUID="7c0e39a1-97dc-42a5-809c-053e4736e7a3" autoIncrement="true" autoIncrementSequenceName="SiteInfo_SiteInfoId_seq_1_1" defaultValue="" name="SiteInfoId" nullable="0" physicalName="SiteInfoId" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL62" populated="true" UUID="3ebd230c-c2e4-4280-96d3-556ec5f0af41" autoIncrement="false" autoIncrementSequenceName="SiteInfo_SiteNumber_seq" defaultValue="" name="SiteNumber" nullable="0" physicalName="SiteNumber" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
@@ -324,7 +324,7 @@
    <relationship id="REL92" populated="true" UUID="f18f5c85-bc92-45b5-83f0-da958d906bf4" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="Unit_Artifact_fk" physicalName="unit_artifact_fk" pk-table-ref="TAB50" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP93" populated="true" UUID="c08480b4-4558-416b-9483-9cc6314556d5" fk-column-ref="COL3" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL51" />
    </relationship>
-   <relationship id="REL94" populated="true" UUID="89da33d9-7ba9-4773-8f9b-6fff807bc214" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="false" name="SiteInfo_Unit_fk" physicalName="SiteInfo_Unit_fk" pk-table-ref="TAB60" pkCardinality="2" updateRule="3" >
+   <relationship id="REL94" populated="true" UUID="89da33d9-7ba9-4773-8f9b-6fff807bc214" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="false" name="SiteInfo_Unit_fk" physicalName="siteinfo_unit_fk" pk-table-ref="TAB60" pkCardinality="2" updateRule="3" >
     <column-mapping id="CMP95" populated="true" UUID="61d167e9-7bcf-4849-8a9e-ee74e444a1c8" fk-column-ref="COL57" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL61" />
    </relationship>
    <relationship id="REL96" populated="true" UUID="a1538119-99ee-431e-9a91-4954bdaae02d" deferrability="7" deleteRule="3" fk-table-ref="TAB60" fkCardinality="7" identifying="false" name="County_SiteInfo_fk" physicalName="county_siteinfo_fk" pk-table-ref="TAB68" pkCardinality="2" updateRule="3" >
@@ -350,7 +350,7 @@
   <table-pane table-ref="TAB60" x="75" y="391" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB68" x="75" y="612" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB74" x="75" y="806" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL80" pkConnection="0.4782608695652174" fkConnection="0.5" rLineColor="0x000000" pkLabelText="LabTechnicianId" fkLabelText="LabTechnicianId" orientation="72"/>
+  <table-link relationship-ref="REL80" pkConnection="0.5" fkConnection="0.46779661016949153" rLineColor="0x000000" pkLabelText="LabTechnicianId" fkLabelText="LabTechnicianId" orientation="72"/>
   <table-link relationship-ref="REL82" pkConnection="0.49206349206349204" fkConnection="0.11439114391143912" rLineColor="0x000000" pkLabelText="PeriodId" fkLabelText="PeriodId" orientation="18"/>
   <table-link relationship-ref="REL86" pkConnection="0.49206349206349204" fkConnection="0.6568265682656826" rLineColor="0x000000" pkLabelText="LSNId" fkLabelText="LSNId" orientation="18"/>
   <table-link relationship-ref="REL84" pkConnection="0.3492063492063492" fkConnection="0.9188191881918819" rLineColor="0x000000" pkLabelText="ASN1Id" fkLabelText="ASN1Id" orientation="18"/>
