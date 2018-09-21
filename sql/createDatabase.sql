@@ -28,7 +28,7 @@ CREATE TABLE SiteInfo (
 CREATE TABLE Unit (
                 UnitId INT AUTO_INCREMENT NOT NULL,
                 FieldSiteNumber INT NOT NULL,
-                Area VARCHAR(1) NOT NULL,
+                AreaLetter VARCHAR(1) NOT NULL,
                 UnitNumber INT NOT NULL,
                 StartDepth INT NOT NULL,
                 EndDepth INT NOT NULL,

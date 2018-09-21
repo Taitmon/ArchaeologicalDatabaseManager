@@ -3,6 +3,16 @@
 # ~~~~
 
 
+GET     /artifacttable              controllers.TableController.getArtifactTable
+
+
+
+
+
+
+
+
+
 GET     /import                     controllers.ImportController.importUnit
 GET     /import2                    controllers.ImportController.importArtifact
 

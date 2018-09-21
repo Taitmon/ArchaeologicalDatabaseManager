@@ -64,7 +64,7 @@ public class ImportController extends Controller
 
                 unit.setUnitId(unitId);
                 unit.setFieldSiteNumber(FSN);
-                unit.setArea(area);
+                unit.setAreaLetter(area);
                 unit.setUnitNumber(unitNumber);
                 unit.setStartDepth(startDepth);
                 unit.setEndDepth(endDepth);

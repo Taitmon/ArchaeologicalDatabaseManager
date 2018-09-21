@@ -1,0 +1,33 @@
+@(artifactTables : List[ArtifactTable])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artifact Table</title>
+</head>
+<body>
+
+
+
+<table>
+    <tr>
+        <th>FSN</th><th>AREA</th><th>UNIT</th><th>Depth(cmbd)</th><th>LSN</th><th>ASN1</th><th>ASN2</th><th>ASN3</th><th>Catalog Number</th>
+    </tr>
+    @for(artifactTable <- artifactTables){
+        <tr>
+            <td>@artifactTable.getFieldSiteNumber</td>
+            <td>@artifactTable.getAreaLetter</td>
+            <td>@artifactTable.getUnitNumber</td>
+            <td>@artifactTable.getStartDepth - @artifactTable.getEndDepth</td>
+            <td>@artifactTable.getLSNId</td>
+            <td>@artifactTable.getASN1Id</td>
+            <td>@artifactTable.getASN2Id</td>
+            <td>@artifactTable.getASN3Id</td>
+            <td>2018-555-@artifactTable.getFieldSiteNumber-@artifactTable.getLSNId-@artifactTable.getASN1Id-@artifactTable.getASN2Id-@artifactTable.getASN3Id </td>
+        </tr>
+    }
+</table>
+
+
+</body>
+</html>

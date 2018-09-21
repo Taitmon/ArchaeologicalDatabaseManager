@@ -8,7 +8,7 @@ public class Unit
 {
     @Id private int unitId;
     private int fieldSiteNumber;
-    private String area;
+    private String areaLetter;
     private int unitNumber;
     private int startDepth;
     private int endDepth;
@@ -34,14 +34,14 @@ public class Unit
         this.fieldSiteNumber = fieldSiteNumber;
     }
 
-    public String getArea()
+    public String getAreaLetter()
     {
-        return area;
+        return areaLetter;
     }
 
-    public void setArea(String area)
+    public void setAreaLetter(String areaLetter)
     {
-        this.area = area;
+        this.areaLetter = areaLetter;
     }
 
     public int getUnitNumber()
