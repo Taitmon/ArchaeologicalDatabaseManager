@@ -2,6 +2,14 @@
 # This file defines all application routes (Higher priority routes first)
 # ~~~~
 
+
+GET     /import                     controllers.ImportController.importUnit
+GET     /import2                    controllers.ImportController.importArtifact
+
+
+
+
+
 # An example controller showing a sample home page
 GET     /                           controllers.HomeController.index
 # An example controller showing how to use dependency injection

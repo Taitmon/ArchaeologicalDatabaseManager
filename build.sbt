@@ -1,4 +1,4 @@
-name := """play-java-starter-example"""
+name := """Archaeological Database Management"""
 
 version := "1.0-SNAPSHOT"
 
@@ -10,8 +10,14 @@ crossScalaVersions := Seq("2.11.12", "2.12.4")
 
 libraryDependencies += guice
 
-// Test Database
-libraryDependencies += "com.h2database" % "h2" % "1.4.197"
+libraryDependencies += "org.apache.commons" % "commons-csv" % "1.5"
+libraryDependencies += "org.webjars" % "bootstrap" % "4.1.3"
+
+//Database
+libraryDependencies += javaJpa
+libraryDependencies += javaJdbc
+libraryDependencies += "org.hibernate" % "hibernate-core" % "5.3.5.Final"
+libraryDependencies += "org.mariadb.jdbc" % "mariadb-java-client" % "2.3.0"
 
 // Testing libraries for dealing with CompletionStage...
 libraryDependencies += "org.assertj" % "assertj-core" % "3.6.2" % Test
