@@ -87,7 +87,7 @@ CREATE TABLE Artifact (
                 LSNId INT NOT NULL,
                 ASN1Id INT NOT NULL,
                 ASN2Id INT NOT NULL,
-                ASN3Id INT NOT NULL,
+                ASN3Id INT,
                 AdditionalDescription VARCHAR(2000),
                 Quantity INT NOT NULL,
                 Weight NUMERIC(5,1),

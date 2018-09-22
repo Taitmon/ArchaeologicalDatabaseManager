@@ -31,7 +31,7 @@
     <column id="COL7" populated="true" UUID="93300929-a34c-470f-9923-fee1b5899c3f" autoIncrement="false" autoIncrementSequenceName="ASN2_ASN2_seq" defaultValue="" name="ASN2Id" nullable="0" physicalName="ASN2Id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL8" populated="true" UUID="93abc4f4-29eb-4841-b3ed-56bfea566b5c" autoIncrement="false" autoIncrementSequenceName="ASN3_ASN3Id_seq" defaultValue="" name="ASN3Id" nullable="0" physicalName="ASN3Id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL8" populated="true" UUID="93abc4f4-29eb-4841-b3ed-56bfea566b5c" autoIncrement="false" autoIncrementSequenceName="ASN3_ASN3Id_seq" defaultValue="" name="ASN3Id" nullable="1" physicalName="ASN3Id" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
     <column id="COL9" populated="true" UUID="2550e410-9e44-4166-b787-16a17b3c49e5" autoIncrement="false" autoIncrementSequenceName="Artifact_AdditionalDescription_seq" defaultValue="" name="AdditionalDescription" nullable="1" physicalName="AdditionalDescription" precision="2000" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >

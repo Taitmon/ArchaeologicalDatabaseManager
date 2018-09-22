@@ -16,9 +16,9 @@ public class ArtifactTable
     private int LSNId;
     private int ASN1Id;
     private int ASN2Id;
-    private int ASN3Id;
+    private Integer ASN3Id;
 
-    public ArtifactTable(int artifactId, int fieldSiteNumber, String areaLetter, int unitNumber, int startDepth, int endDepth, int periodId, int LSNId, int ASN1Id, int ASN2Id, int ASN3Id)
+    public ArtifactTable(int artifactId, int fieldSiteNumber, String areaLetter, int unitNumber, int startDepth, int endDepth, int periodId, int LSNId, int ASN1Id, int ASN2Id, Integer ASN3Id)
     {
         this.artifactId = artifactId;
         this.fieldSiteNumber = fieldSiteNumber;
@@ -78,7 +78,7 @@ public class ArtifactTable
         return ASN2Id;
     }
 
-    public int getASN3Id()
+    public Integer getASN3Id()
     {
         return ASN3Id;
     }

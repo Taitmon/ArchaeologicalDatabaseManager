@@ -23,7 +23,12 @@
             <td>@artifactTable.getASN1Id</td>
             <td>@artifactTable.getASN2Id</td>
             <td>@artifactTable.getASN3Id</td>
-            <td>2018-555-@artifactTable.getFieldSiteNumber-@artifactTable.getLSNId-@artifactTable.getASN1Id-@artifactTable.getASN2Id-@artifactTable.getASN3Id </td>
+            @if(artifactTable.getASN3Id == null){
+                <td>2018-555-@artifactTable.getFieldSiteNumber-@artifactTable.getLSNId-@artifactTable.getASN1Id-@artifactTable.getASN2Id</td>
+
+            }else{
+                <td>2018-555-@artifactTable.getFieldSiteNumber-@artifactTable.getLSNId-@artifactTable.getASN1Id-@artifactTable.getASN2Id-@artifactTable.getASN3Id</td>
+            }
         </tr>
     }
 </table>

@@ -15,7 +15,7 @@ public class Artifact
     private int LSNId;
     private int ASN1Id;
     private int ASN2Id;
-    private int ASN3Id;
+    private Integer ASN3Id;
     private String additionalDescription;
     private int quantity;
     private BigDecimal weight;
@@ -83,12 +83,12 @@ public class Artifact
         this.ASN2Id = ASN2Id;
     }
 
-    public int getASN3Id()
+    public Integer getASN3Id()
     {
         return ASN3Id;
     }
 
-    public void setASN3Id(int ASN3Id)
+    public void setASN3Id(Integer ASN3Id)
     {
         this.ASN3Id = ASN3Id;
     }

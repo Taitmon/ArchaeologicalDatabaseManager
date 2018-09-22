@@ -113,10 +113,10 @@ public class ImportController extends Controller
                 int ASN2Id = Integer.parseInt(ASN2IdString);
 
                 String ASN3IdString = csvRecord.get(6);
-                int ASN3Id;
+                Integer ASN3Id;
                 if(ASN3IdString.isEmpty())
                 {
-                     ASN3Id = 22;
+                     ASN3Id = null;
                 }
                 else
                 {

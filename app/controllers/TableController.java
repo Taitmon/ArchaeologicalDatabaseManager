@@ -1,6 +1,7 @@
 package controllers;
 
 
+import models.Artifact;
 import models.ArtifactTable;
 import play.data.FormFactory;
 import play.db.jpa.JPAApi;
@@ -33,7 +34,10 @@ public class TableController extends Controller
         List<ArtifactTable> artifactTables = jpaApi.em().createQuery(sql, ArtifactTable.class).getResultList();
 
 
+
         return ok(views.html.artifacttable.render(artifactTables));
     }
+
+
 
 }
