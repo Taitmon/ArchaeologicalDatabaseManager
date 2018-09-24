@@ -6,6 +6,11 @@
 GET     /artifacttable              controllers.TableController.getArtifactTable
 
 
+GET     /newartifact                controllers.ArtifactController.getNewArtifact
+POST    /newartifact                controllers.ArtifactController.postNewArtifact
+
+GET     /newunit                    controllers.UnitController.getNewUnit
+POST    /newunit                    controllers.UnitController.postNewUnit
 
 
 

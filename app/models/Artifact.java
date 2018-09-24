@@ -21,7 +21,17 @@ public class Artifact
     private BigDecimal weight;
     private int labTechnicianId;
     private LocalDate dateAnalyzed;
+    private String notes;
 
+    public String getNotes()
+    {
+        return notes;
+    }
+
+    public void setNotes(String notes)
+    {
+        this.notes = notes;
+    }
 
     public int getArtifactId()
     {

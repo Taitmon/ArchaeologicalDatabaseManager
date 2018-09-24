@@ -1,0 +1,63 @@
+@(lsnList : List[LSN], asn1List : List[ASN1], asn2List : List[ASN2], asn3List : List[ASN3], labTechList : List[LabTechnician])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Artifact Entry</title>
+</head>
+<body>
+<form method="POST">
+    @helper.CSRF.formField
+    <label for="LSN"><b>LSN: </b></label>
+    @for(lsn <- lsnList){
+        <input type="radio" name="LSN" id="LSN" value="@lsn.getLSNId">@lsn.getLSNName
+    }<br>
+
+    <label for="ASN1"><b>ASN1: </b></label>
+    <select name="ASN1" id="ASN1">
+        @for(asn1 <- asn1List){
+            <option value="@asn1.getASN1Id">@asn1.getASN1Name</option>
+        }
+    </select>
+
+    <label for="ASN2"><b>ASN2: </b></label>
+    <select name="ASN2" id="ASN2">
+        @for(asn2 <- asn2List){
+        <option value="@asn2.getASN2Id">@asn2.getASN2Name</option>
+        }
+    </select>
+
+    <label for="ASN3"><b>ASN3: </b></label>
+    <select name="ASN3" id="ASN3">
+        <option value="">None</option>
+        @for(asn3 <- asn3List){
+        <option value="@asn3.getASN3Id">@asn3.getASN3Name</option>
+        }
+    </select><br>
+
+    <label for="description"><b>Additional Description: </b></label>
+    <textarea id="description" name="description"></textarea><br>
+
+    <label for="quantity"><b>Quantity: </b></label>
+    <input type="number" name="quantity" id="quantity" required>
+
+    <label for="weight"><b>Weight(g): </b></label>
+    <input type="number" name="weight" id="weight" required>
+
+    <label for="date"><b>Date Analyzed: </b></label>
+    <input type="date" name="dateanalyzed" id="date" required><br>
+
+    <label for="notes"><b>Notes: </b></label>
+    <textarea id="notes" name="notes"></textarea>
+
+    <label for="labtechnician"><b>Lab Technician: </b></label>
+    @for(labTechnician <- labTechList){
+    <input type="radio" id="labtechnician" name="labtechnician" value="@labTechnician.getLabTechnicianId">@labTechnician.getLabTechnicianInitials
+    }<br>
+
+    <input type="Submit" value="Add New Artifact">
+
+
+</form>
+</body>
+</html>
