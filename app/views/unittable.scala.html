@@ -1,0 +1,51 @@
+@(units : List[Unit])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Existing Units</title>
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/lib/popper.js/umd/popper.min.js"></script>
+</head>
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+                <h3 class="text-white">Unit Table</h3>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/">Go Home</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <table class="table text-center">
+        <thead>
+            <tr >
+                <th>FSN</th><th>Area</th><th>Unit</th><th>Depth(cmbd)</th>
+            </tr>
+        </thead>
+        <tbody>
+        @for(unit <- units){
+            <form action="@routes.ArtifactController.getNewArtifact">
+                @helper.CSRF.formField
+                <tr>
+                    <td><input type="submit" class="btn btn-outline-info btn-block" value="@unit.getFieldSiteNumber"</td>
+                    <td>@unit.getAreaLetter</td>
+                    <td>@unit.getUnitNumber</td>
+                    <td>@unit.getStartDepth - @unit.getEndDepth</td>
+                    <input type="hidden" id="UnitId" name="UnitId" value="@unit.getUnitId">
+                </tr>
+            </form>
+            }
+        </tbody>
+
+
+    </table>
+</div>
+</body>
+</html>

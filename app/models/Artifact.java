@@ -1,6 +1,8 @@
 package models;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.math.BigDecimal;
 import java.time.LocalDate;
@@ -9,7 +11,7 @@ import java.time.LocalDate;
 public class Artifact
 {
 
-    @Id private int artifactId;
+    @Id @GeneratedValue(strategy=GenerationType.IDENTITY) private int artifactId;
     private int unitId;
     private int periodId;
     private int LSNId;
@@ -22,6 +24,29 @@ public class Artifact
     private int labTechnicianId;
     private LocalDate dateAnalyzed;
     private String notes;
+    private String imageKey;
+
+    public String getImageKey()
+    {
+        return imageKey;
+    }
+
+    public void setImageKey(String imageKey)
+    {
+        this.imageKey = imageKey;
+    }
+
+    public byte[] getImage()
+    {
+        return image;
+    }
+
+    public void setImage(byte[] image)
+    {
+        this.image = image;
+    }
+
+    private byte[] image;
 
     public String getNotes()
     {

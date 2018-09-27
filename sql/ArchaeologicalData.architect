@@ -225,70 +225,55 @@
     <index id="IDX58" populated="true" UUID="e7813eb8-9e62-4506-afbc-c38e5e7b4b4a" clustered="false" name="Unit_pk" physicalName="unit_pk" primaryKeyIndex="true" unique="false" >
      <index-column id="IDC59" populated="true" UUID="d4c197f7-a21c-4018-8c62-4464fd9f608b" ascendingOrDescending="UNSPECIFIED" column-ref="COL51" name="UnitId" physicalName="UnitId" />
     </index>
-   </folder>
-  </table>
-  <table id="TAB60" populated="true" UUID="b76bcdec-8639-40c9-9f7a-cc5589b90886" name="SiteInfo" objectType="TABLE" physicalName="SiteInfo" >
-   <remarks></remarks>
-   <folder id="FOLTAB601" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL61" populated="true" UUID="7c0e39a1-97dc-42a5-809c-053e4736e7a3" autoIncrement="true" autoIncrementSequenceName="SiteInfo_SiteInfoId_seq_1_1" defaultValue="" name="SiteInfoId" nullable="0" physicalName="SiteInfoId" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks></remarks>
-    </column>
-    <column id="COL62" populated="true" UUID="3ebd230c-c2e4-4280-96d3-556ec5f0af41" autoIncrement="false" autoIncrementSequenceName="SiteInfo_SiteNumber_seq" defaultValue="" name="SiteNumber" nullable="0" physicalName="SiteNumber" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
-     <remarks></remarks>
-    </column>
-    <column id="COL63" populated="true" UUID="f1eb2ff8-dd97-4407-9478-660eb859c939" autoIncrement="false" autoIncrementSequenceName="County_CountyId_seq" defaultValue="" name="CountyId" nullable="0" physicalName="CountyId" precision="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
-     <remarks></remarks>
-    </column>
-    <column id="COL64" populated="true" UUID="f6df1852-f0a0-4ea2-bfa5-ac65bc3d0c7f" autoIncrement="false" autoIncrementSequenceName="SiteInfo_ProjectNumber_seq" defaultValue="" name="ProjectNumber" nullable="0" physicalName="ProjectNumber" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
-    </column>
-    <column id="COL65" populated="true" UUID="78ec1933-de8e-43e3-8864-d1728100bd87" autoIncrement="false" autoIncrementSequenceName="SiteInfo_AccessionNumber_seq" defaultValue="" name="AccessionNumber" nullable="0" physicalName="AccessionNumber" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
-     <remarks></remarks>
-    </column>
-    </folder>
-    <folder id="FOLTAB603" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
-    </folder>
-    <folder id="FOLTAB602" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
-    </folder>
-    <folder id="FOLTAB604" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX66" populated="true" UUID="1efd1522-4118-4b2d-9288-2c9b82ca9b4f" clustered="false" name="SiteInfo_pk" physicalName="siteinfo_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC67" populated="true" UUID="ad552a28-6d81-4717-b50b-5bd0042a27f7" ascendingOrDescending="UNSPECIFIED" column-ref="COL61" name="SiteInfoId" physicalName="SiteInfoId" />
+    <index id="IDX60" populated="true" UUID="fdd98aee-cb20-4824-8de2-2c3d1b4724f6" clustered="false" name="Unit_idx" physicalName="Unit_idx" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC61" populated="true" UUID="5e8756af-c958-44c2-a724-5db2dc8a8709" ascendingOrDescending="UNSPECIFIED" column-ref="COL52" name="FieldSiteNumber" physicalName="FieldSiteNumber" />
+    </index>
+    <index id="IDX62" populated="true" UUID="05b182cc-50a3-4eb9-8d18-2303312d89fa" clustered="false" name="Unit_area_number_unique" physicalName="Unit_area_number_unique" primaryKeyIndex="false" unique="true" >
+     <index-column id="IDC63" populated="true" UUID="b8f8a578-4027-43df-90d2-7522fa3d3326" ascendingOrDescending="UNSPECIFIED" column-ref="COL53" name="AreaLetter" physicalName="AreaLetter" />
+     <index-column id="IDC64" populated="true" UUID="c38a2a26-39e9-49d6-b258-3ba223ab5169" ascendingOrDescending="UNSPECIFIED" column-ref="COL54" name="UnitNumber" physicalName="UnitNumber" />
+     <index-column id="IDC65" populated="true" UUID="ba812b92-f180-4af5-a3d5-f1bc6469aab4" ascendingOrDescending="UNSPECIFIED" column-ref="COL55" name="StartDepth" physicalName="StartDepth" />
     </index>
    </folder>
   </table>
-  <table id="TAB68" populated="true" UUID="056d1607-bd1c-47c4-8db5-2d5f375d8a99" name="County" objectType="TABLE" physicalName="County" >
+  <table id="TAB66" populated="true" UUID="b76bcdec-8639-40c9-9f7a-cc5589b90886" name="SiteInfo" objectType="TABLE" physicalName="SiteInfo" >
    <remarks></remarks>
-   <folder id="FOLTAB681" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL69" populated="true" UUID="72857577-93db-4ffc-a9ac-1a5e789d81e6" autoIncrement="false" autoIncrementSequenceName="County_CountyId_seq_1" defaultValue="" name="CountyId" nullable="0" physicalName="CountyId" precision="2" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+   <folder id="FOLTAB661" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL67" populated="true" UUID="7c0e39a1-97dc-42a5-809c-053e4736e7a3" autoIncrement="true" autoIncrementSequenceName="SiteInfo_SiteInfoId_seq_1_1" defaultValue="" name="SiteInfoId" nullable="0" physicalName="SiteInfoId" precision="0" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL70" populated="true" UUID="d17b6991-0db1-48a4-a602-6fda0119d5cb" autoIncrement="false" autoIncrementSequenceName="County_CountyName_seq" defaultValue="" name="CountyName" nullable="0" physicalName="CountyName" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL68" populated="true" UUID="3ebd230c-c2e4-4280-96d3-556ec5f0af41" autoIncrement="false" autoIncrementSequenceName="SiteInfo_SiteNumber_seq" defaultValue="" name="SiteNumber" nullable="0" physicalName="SiteNumber" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
      <remarks></remarks>
     </column>
-    <column id="COL71" populated="true" UUID="fe443477-13b7-4fb2-a691-4dccfa0d3725" autoIncrement="false" autoIncrementSequenceName="State_StateId_seq" defaultValue="" name="StateId" nullable="0" physicalName="StateId" precision="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+    <column id="COL69" populated="true" UUID="f1eb2ff8-dd97-4407-9478-660eb859c939" autoIncrement="false" autoIncrementSequenceName="County_CountyId_seq" defaultValue="" name="CountyId" nullable="0" physicalName="CountyId" precision="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks></remarks>
+    </column>
+    <column id="COL70" populated="true" UUID="f6df1852-f0a0-4ea2-bfa5-ac65bc3d0c7f" autoIncrement="false" autoIncrementSequenceName="SiteInfo_ProjectNumber_seq" defaultValue="" name="ProjectNumber" nullable="0" physicalName="ProjectNumber" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL71" populated="true" UUID="78ec1933-de8e-43e3-8864-d1728100bd87" autoIncrement="false" autoIncrementSequenceName="SiteInfo_AccessionNumber_seq" defaultValue="" name="AccessionNumber" nullable="0" physicalName="AccessionNumber" precision="15" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
     </folder>
-    <folder id="FOLTAB683" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    <folder id="FOLTAB663" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
     </folder>
-    <folder id="FOLTAB682" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    <folder id="FOLTAB662" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
-    <folder id="FOLTAB684" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX72" populated="true" UUID="72e2fc0f-d882-496d-991c-36e9e9c440ae" clustered="false" name="County_pk" physicalName="county_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC73" populated="true" UUID="7d541b62-a2f3-4f53-a9bb-5e0ceead49cc" ascendingOrDescending="UNSPECIFIED" column-ref="COL69" name="CountyId" physicalName="CountyId" />
+    <folder id="FOLTAB664" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX72" populated="true" UUID="1efd1522-4118-4b2d-9288-2c9b82ca9b4f" clustered="false" name="SiteInfo_pk" physicalName="siteinfo_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC73" populated="true" UUID="ad552a28-6d81-4717-b50b-5bd0042a27f7" ascendingOrDescending="UNSPECIFIED" column-ref="COL67" name="SiteInfoId" physicalName="SiteInfoId" />
     </index>
    </folder>
   </table>
-  <table id="TAB74" populated="true" UUID="1cd8ac6b-2711-4192-90bc-8211052710b6" name="State" objectType="TABLE" physicalName="State" >
+  <table id="TAB74" populated="true" UUID="056d1607-bd1c-47c4-8db5-2d5f375d8a99" name="County" objectType="TABLE" physicalName="County" >
    <remarks></remarks>
    <folder id="FOLTAB741" populated="true" name="Columns" physicalName="Columns" type="1">
-    <column id="COL75" populated="true" UUID="42a3e9fa-82c8-4f13-a7ff-c9a74013a13e" autoIncrement="false" autoIncrementSequenceName="State_StateId_seq_1" defaultValue="" name="StateId" nullable="0" physicalName="StateId" precision="2" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+    <column id="COL75" populated="true" UUID="72857577-93db-4ffc-a9ac-1a5e789d81e6" autoIncrement="false" autoIncrementSequenceName="County_CountyId_seq_1" defaultValue="" name="CountyId" nullable="0" physicalName="CountyId" precision="2" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
-    <column id="COL76" populated="true" UUID="2a2815d4-f840-4891-9898-c04fb317428c" autoIncrement="false" autoIncrementSequenceName="State_StateName_seq" defaultValue="" name="StateName" nullable="0" physicalName="StateName" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+    <column id="COL76" populated="true" UUID="d17b6991-0db1-48a4-a602-6fda0119d5cb" autoIncrement="false" autoIncrementSequenceName="County_CountyName_seq" defaultValue="" name="CountyName" nullable="0" physicalName="CountyName" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
      <remarks></remarks>
     </column>
-    <column id="COL77" populated="true" UUID="d3d1610b-2100-4efe-8fbb-13a68f689d98" autoIncrement="false" autoIncrementSequenceName="State_StateNumber_seq" defaultValue="" name="StateNumber" nullable="0" physicalName="StateNumber" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+    <column id="COL77" populated="true" UUID="fe443477-13b7-4fb2-a691-4dccfa0d3725" autoIncrement="false" autoIncrementSequenceName="State_StateId_seq" defaultValue="" name="StateId" nullable="0" physicalName="StateId" precision="2" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
      <remarks></remarks>
     </column>
     </folder>
@@ -297,41 +282,64 @@
     <folder id="FOLTAB742" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
     </folder>
     <folder id="FOLTAB744" populated="true" name="Indices" physicalName="Indices" type="4">
-    <index id="IDX78" populated="true" UUID="748956eb-6286-4cad-a8d2-0afaa9977a0b" clustered="false" name="State_pk" physicalName="state_pk" primaryKeyIndex="true" unique="false" >
-     <index-column id="IDC79" populated="true" UUID="126e5a57-5896-4732-8f2c-ef2dd47ff467" ascendingOrDescending="UNSPECIFIED" column-ref="COL75" name="StateId" physicalName="StateId" />
+    <index id="IDX78" populated="true" UUID="72e2fc0f-d882-496d-991c-36e9e9c440ae" clustered="false" name="County_pk" physicalName="county_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC79" populated="true" UUID="7d541b62-a2f3-4f53-a9bb-5e0ceead49cc" ascendingOrDescending="UNSPECIFIED" column-ref="COL75" name="CountyId" physicalName="CountyId" />
+    </index>
+   </folder>
+  </table>
+  <table id="TAB80" populated="true" UUID="1cd8ac6b-2711-4192-90bc-8211052710b6" name="State" objectType="TABLE" physicalName="State" >
+   <remarks></remarks>
+   <folder id="FOLTAB801" populated="true" name="Columns" physicalName="Columns" type="1">
+    <column id="COL81" populated="true" UUID="42a3e9fa-82c8-4f13-a7ff-c9a74013a13e" autoIncrement="false" autoIncrementSequenceName="State_StateId_seq_1" defaultValue="" name="StateId" nullable="0" physicalName="StateId" precision="2" primaryKeySeq="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="1" userDefinedTypeUUID="67ddc63f-5541-4dd1-9236-632d9d155e80" >
+     <remarks></remarks>
+    </column>
+    <column id="COL82" populated="true" UUID="2a2815d4-f840-4891-9898-c04fb317428c" autoIncrement="false" autoIncrementSequenceName="State_StateName_seq" defaultValue="" name="StateName" nullable="0" physicalName="StateName" precision="20" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="12" userDefinedTypeUUID="831ac2d4-0e65-47ec-a0b7-62b7f6b8760a" >
+     <remarks></remarks>
+    </column>
+    <column id="COL83" populated="true" UUID="d3d1610b-2100-4efe-8fbb-13a68f689d98" autoIncrement="false" autoIncrementSequenceName="State_StateNumber_seq" defaultValue="" name="StateNumber" nullable="0" physicalName="StateNumber" precision="0" referenceCount="1" scale="0" sourceDataTypeName="UserDefinedSQLType" type="4" userDefinedTypeUUID="63b011c7-c81f-4c75-8271-632b3c87f727" >
+     <remarks></remarks>
+    </column>
+    </folder>
+    <folder id="FOLTAB803" populated="true" name="Exported Keys" physicalName="Exported Keys" type="3">
+    </folder>
+    <folder id="FOLTAB802" populated="true" name="Imported Keys" physicalName="Imported Keys" type="2">
+    </folder>
+    <folder id="FOLTAB804" populated="true" name="Indices" physicalName="Indices" type="4">
+    <index id="IDX84" populated="true" UUID="748956eb-6286-4cad-a8d2-0afaa9977a0b" clustered="false" name="State_pk" physicalName="state_pk" primaryKeyIndex="true" unique="false" >
+     <index-column id="IDC85" populated="true" UUID="126e5a57-5896-4732-8f2c-ef2dd47ff467" ascendingOrDescending="UNSPECIFIED" column-ref="COL81" name="StateId" physicalName="StateId" />
     </index>
    </folder>
   </table>
   <relationships>
-   <relationship id="REL80" populated="true" UUID="6ce4bbc4-6bcf-4134-b210-15ff757c8c60" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="Employee_Artifact_fk" physicalName="employee_artifact_fk" pk-table-ref="TAB19" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP81" populated="true" UUID="6580fb9d-1c11-4608-b9eb-20da20844746" fk-column-ref="COL12" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL20" />
+   <relationship id="REL86" populated="true" UUID="6ce4bbc4-6bcf-4134-b210-15ff757c8c60" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="Employee_Artifact_fk" physicalName="employee_artifact_fk" pk-table-ref="TAB19" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP87" populated="true" UUID="6580fb9d-1c11-4608-b9eb-20da20844746" fk-column-ref="COL12" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL20" />
    </relationship>
-   <relationship id="REL82" populated="true" UUID="0bd37786-38f6-42c0-9cdd-50a358576d8d" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="Period_Artifact_fk" physicalName="period_artifact_fk" pk-table-ref="TAB25" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP83" populated="true" UUID="7745ef80-b015-4698-be14-4177971c6bba" fk-column-ref="COL4" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL26" />
+   <relationship id="REL88" populated="true" UUID="0bd37786-38f6-42c0-9cdd-50a358576d8d" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="Period_Artifact_fk" physicalName="period_artifact_fk" pk-table-ref="TAB25" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP89" populated="true" UUID="7745ef80-b015-4698-be14-4177971c6bba" fk-column-ref="COL4" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL26" />
    </relationship>
-   <relationship id="REL84" populated="true" UUID="4bcea065-e30d-4bd6-9f8c-1efd405d714a" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="ASN1_Artifact_fk" physicalName="asn1_artifact_fk" pk-table-ref="TAB30" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP85" populated="true" UUID="1fc5dfa4-f0e0-4e55-8862-d97296737dfb" fk-column-ref="COL6" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
+   <relationship id="REL90" populated="true" UUID="4bcea065-e30d-4bd6-9f8c-1efd405d714a" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="ASN1_Artifact_fk" physicalName="asn1_artifact_fk" pk-table-ref="TAB30" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP91" populated="true" UUID="1fc5dfa4-f0e0-4e55-8862-d97296737dfb" fk-column-ref="COL6" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL31" />
    </relationship>
-   <relationship id="REL86" populated="true" UUID="b39ed590-e198-426c-be1b-22f3ff0a82d3" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="LSN_Artifact_fk" physicalName="lsn_artifact_fk" pk-table-ref="TAB35" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP87" populated="true" UUID="92d4243e-1a94-40db-a00b-6faf3b35d137" fk-column-ref="COL5" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
+   <relationship id="REL92" populated="true" UUID="b39ed590-e198-426c-be1b-22f3ff0a82d3" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="LSN_Artifact_fk" physicalName="lsn_artifact_fk" pk-table-ref="TAB35" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP93" populated="true" UUID="92d4243e-1a94-40db-a00b-6faf3b35d137" fk-column-ref="COL5" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL36" />
    </relationship>
-   <relationship id="REL88" populated="true" UUID="bab5cd32-4570-453e-bbdf-e11b123aa1a0" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="ASN2_Artifact_fk" physicalName="asn2_artifact_fk" pk-table-ref="TAB40" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP89" populated="true" UUID="2c356b2a-7b56-4020-9f25-c137ccc654bb" fk-column-ref="COL7" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL41" />
+   <relationship id="REL94" populated="true" UUID="bab5cd32-4570-453e-bbdf-e11b123aa1a0" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="ASN2_Artifact_fk" physicalName="asn2_artifact_fk" pk-table-ref="TAB40" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP95" populated="true" UUID="2c356b2a-7b56-4020-9f25-c137ccc654bb" fk-column-ref="COL7" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL41" />
    </relationship>
-   <relationship id="REL90" populated="true" UUID="d7e59467-1e61-4260-9e94-722f5244cda5" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="ASN3_Artifact_fk" physicalName="asn3_artifact_fk" pk-table-ref="TAB45" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP91" populated="true" UUID="d10aa294-0a6b-446a-af2b-18f8d147b530" fk-column-ref="COL8" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL46" />
+   <relationship id="REL96" populated="true" UUID="d7e59467-1e61-4260-9e94-722f5244cda5" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="ASN3_Artifact_fk" physicalName="asn3_artifact_fk" pk-table-ref="TAB45" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP97" populated="true" UUID="d10aa294-0a6b-446a-af2b-18f8d147b530" fk-column-ref="COL8" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL46" />
    </relationship>
-   <relationship id="REL92" populated="true" UUID="f18f5c85-bc92-45b5-83f0-da958d906bf4" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="Unit_Artifact_fk" physicalName="unit_artifact_fk" pk-table-ref="TAB50" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP93" populated="true" UUID="c08480b4-4558-416b-9483-9cc6314556d5" fk-column-ref="COL3" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL51" />
+   <relationship id="REL98" populated="true" UUID="f18f5c85-bc92-45b5-83f0-da958d906bf4" deferrability="7" deleteRule="3" fk-table-ref="TAB1" fkCardinality="7" identifying="false" name="Unit_Artifact_fk" physicalName="unit_artifact_fk" pk-table-ref="TAB50" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP99" populated="true" UUID="c08480b4-4558-416b-9483-9cc6314556d5" fk-column-ref="COL3" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL51" />
    </relationship>
-   <relationship id="REL94" populated="true" UUID="89da33d9-7ba9-4773-8f9b-6fff807bc214" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="false" name="SiteInfo_Unit_fk" physicalName="siteinfo_unit_fk" pk-table-ref="TAB60" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP95" populated="true" UUID="61d167e9-7bcf-4849-8a9e-ee74e444a1c8" fk-column-ref="COL57" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL61" />
+   <relationship id="REL100" populated="true" UUID="89da33d9-7ba9-4773-8f9b-6fff807bc214" deferrability="7" deleteRule="3" fk-table-ref="TAB50" fkCardinality="7" identifying="false" name="SiteInfo_Unit_fk" physicalName="siteinfo_unit_fk" pk-table-ref="TAB66" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP101" populated="true" UUID="61d167e9-7bcf-4849-8a9e-ee74e444a1c8" fk-column-ref="COL57" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL67" />
    </relationship>
-   <relationship id="REL96" populated="true" UUID="a1538119-99ee-431e-9a91-4954bdaae02d" deferrability="7" deleteRule="3" fk-table-ref="TAB60" fkCardinality="7" identifying="false" name="County_SiteInfo_fk" physicalName="county_siteinfo_fk" pk-table-ref="TAB68" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP97" populated="true" UUID="18ada1b5-589e-4b36-8ccc-6623a80596fe" fk-column-ref="COL63" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL69" />
+   <relationship id="REL102" populated="true" UUID="a1538119-99ee-431e-9a91-4954bdaae02d" deferrability="7" deleteRule="3" fk-table-ref="TAB66" fkCardinality="7" identifying="false" name="County_SiteInfo_fk" physicalName="county_siteinfo_fk" pk-table-ref="TAB74" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP103" populated="true" UUID="18ada1b5-589e-4b36-8ccc-6623a80596fe" fk-column-ref="COL69" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL75" />
    </relationship>
-   <relationship id="REL98" populated="true" UUID="c98e448c-d387-4892-a5bc-c84cfe44f456" deferrability="7" deleteRule="3" fk-table-ref="TAB68" fkCardinality="7" identifying="false" name="State_County_fk" physicalName="state_county_fk" pk-table-ref="TAB74" pkCardinality="2" updateRule="3" >
-    <column-mapping id="CMP99" populated="true" UUID="8c060443-a0f1-4314-8ff5-00233379558c" fk-column-ref="COL71" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL75" />
+   <relationship id="REL104" populated="true" UUID="c98e448c-d387-4892-a5bc-c84cfe44f456" deferrability="7" deleteRule="3" fk-table-ref="TAB74" fkCardinality="7" identifying="false" name="State_County_fk" physicalName="state_county_fk" pk-table-ref="TAB80" pkCardinality="2" updateRule="3" >
+    <column-mapping id="CMP105" populated="true" UUID="8c060443-a0f1-4314-8ff5-00233379558c" fk-column-ref="COL77" name="Column Mapping" physicalName="Column Mapping" pk-column-ref="COL81" />
    </relationship>
   </relationships>
  </target-database>
@@ -347,19 +355,19 @@
   <table-pane table-ref="TAB40" x="1225" y="441" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB45" x="1225" y="521" bgColor="0xe6d794" fgColor="0x000000" rounded="false" dashed="false"/>
   <table-pane table-ref="TAB50" x="75" y="135" bgColor="0xc8b7ea" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB60" x="75" y="391" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB68" x="75" y="612" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-pane table-ref="TAB74" x="75" y="806" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
-  <table-link relationship-ref="REL80" pkConnection="0.5" fkConnection="0.46779661016949153" rLineColor="0x000000" pkLabelText="LabTechnicianId" fkLabelText="LabTechnicianId" orientation="72"/>
-  <table-link relationship-ref="REL82" pkConnection="0.49206349206349204" fkConnection="0.11439114391143912" rLineColor="0x000000" pkLabelText="PeriodId" fkLabelText="PeriodId" orientation="18"/>
-  <table-link relationship-ref="REL86" pkConnection="0.49206349206349204" fkConnection="0.6568265682656826" rLineColor="0x000000" pkLabelText="LSNId" fkLabelText="LSNId" orientation="18"/>
-  <table-link relationship-ref="REL84" pkConnection="0.3492063492063492" fkConnection="0.9188191881918819" rLineColor="0x000000" pkLabelText="ASN1Id" fkLabelText="ASN1Id" orientation="18"/>
-  <table-link relationship-ref="REL88" pkConnection="0.15873015873015872" fkConnection="0.9128787878787878" rLineColor="0x000000" pkLabelText="ASN2Id" fkLabelText="ASN2Id" orientation="66"/>
-  <table-link relationship-ref="REL90" pkConnection="0.14893617021276595" fkConnection="0.803030303030303" rLineColor="0x000000" pkLabelText="ASN3Id" fkLabelText="ASN3Id" orientation="66"/>
-  <table-link relationship-ref="REL92" pkConnection="0.4965034965034965" fkConnection="0.26199261992619927" rLineColor="0x000000" pkLabelText="UnitId" fkLabelText="UnitId" orientation="33"/>
-  <table-link relationship-ref="REL96" pkConnection="0.5" fkConnection="0.44106463878326996" rLineColor="0x000000" pkLabelText="CountyId" fkLabelText="CountyId" orientation="72"/>
-  <table-link relationship-ref="REL98" pkConnection="0.49777777777777776" fkConnection="0.47863247863247865" rLineColor="0x000000" pkLabelText="StateId" fkLabelText="StateId" orientation="72"/>
-  <table-link relationship-ref="REL94" pkConnection="0.4296577946768061" fkConnection="0.4977973568281938" rLineColor="0x000000" pkLabelText="SiteInfoId" fkLabelText="SiteInfoId" orientation="72"/>
+  <table-pane table-ref="TAB66" x="75" y="391" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB74" x="75" y="612" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-pane table-ref="TAB80" x="75" y="806" bgColor="0xe4e4b8" fgColor="0x000000" rounded="false" dashed="false"/>
+  <table-link relationship-ref="REL86" pkConnection="0.4782608695652174" fkConnection="0.5" rLineColor="0x000000" pkLabelText="LabTechnicianId" fkLabelText="LabTechnicianId" orientation="72"/>
+  <table-link relationship-ref="REL88" pkConnection="0.49206349206349204" fkConnection="0.11439114391143912" rLineColor="0x000000" pkLabelText="PeriodId" fkLabelText="PeriodId" orientation="18"/>
+  <table-link relationship-ref="REL92" pkConnection="0.49206349206349204" fkConnection="0.6568265682656826" rLineColor="0x000000" pkLabelText="LSNId" fkLabelText="LSNId" orientation="18"/>
+  <table-link relationship-ref="REL90" pkConnection="0.3492063492063492" fkConnection="0.9188191881918819" rLineColor="0x000000" pkLabelText="ASN1Id" fkLabelText="ASN1Id" orientation="18"/>
+  <table-link relationship-ref="REL94" pkConnection="0.15873015873015872" fkConnection="0.9128787878787878" rLineColor="0x000000" pkLabelText="ASN2Id" fkLabelText="ASN2Id" orientation="66"/>
+  <table-link relationship-ref="REL96" pkConnection="0.14893617021276595" fkConnection="0.803030303030303" rLineColor="0x000000" pkLabelText="ASN3Id" fkLabelText="ASN3Id" orientation="66"/>
+  <table-link relationship-ref="REL98" pkConnection="0.4965034965034965" fkConnection="0.26199261992619927" rLineColor="0x000000" pkLabelText="UnitId" fkLabelText="UnitId" orientation="33"/>
+  <table-link relationship-ref="REL102" pkConnection="0.5" fkConnection="0.44106463878326996" rLineColor="0x000000" pkLabelText="CountyId" fkLabelText="CountyId" orientation="72"/>
+  <table-link relationship-ref="REL104" pkConnection="0.49777777777777776" fkConnection="0.47863247863247865" rLineColor="0x000000" pkLabelText="StateId" fkLabelText="StateId" orientation="72"/>
+  <table-link relationship-ref="REL100" pkConnection="0.4296577946768061" fkConnection="0.4977973568281938" rLineColor="0x000000" pkLabelText="SiteInfoId" fkLabelText="SiteInfoId" orientation="72"/>
  </play-pen>
  <critic-manager>
   <critic-grouping platformType="Generic" enabled="true">

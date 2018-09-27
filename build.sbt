@@ -12,6 +12,7 @@ libraryDependencies += guice
 
 libraryDependencies += "org.apache.commons" % "commons-csv" % "1.5"
 libraryDependencies += "org.webjars" % "bootstrap" % "4.1.3"
+libraryDependencies += "com.amazonaws" % "aws-java-sdk" % "1.11.415"
 
 //Database
 libraryDependencies += javaJpa

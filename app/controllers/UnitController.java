@@ -51,6 +51,9 @@ public class UnitController extends Controller
         String endDepthString = form.get("enddepth");
         int endDepth = Integer.parseInt(endDepthString);
 
+        boolean isDuplicate = checkDuplicate(fieldSiteNumber, areaLetter, unitNumber, startDepth);
+        boolean goodDepths = checkDepths(startDepth, endDepth);
+
         unit.setFieldSiteNumber(fieldSiteNumber);
         unit.setAreaLetter(areaLetter);
         unit.setUnitNumber(unitNumber);
@@ -59,75 +62,82 @@ public class UnitController extends Controller
         //Assumed Site Info = 2 for project purposes
         unit.setSiteInfoId(2);
 
-        boolean isDuplicate = checkDuplicate(unit);
+
         boolean dataSaved;
 
-        if(isDuplicate)
+        if (isDuplicate)
         {
             result = "Unit Already Exists";
-            dataSaved = false;
+            return ok(result);
         }
-        else if (startDepth > endDepth || startDepth == 10)
+        else if (!goodDepths)
         {
-            result = "Check depth";
-            dataSaved = false;
-        }
-        else if ((startDepth == 0 && endDepth != 20) || (endDepth != startDepth + 10))
-        {
-            result = "Check depth";
-            dataSaved = false;
+            result = "Check your depths";
+            return ok(result);
         }
         else
-        {
-            dataSaved = true;
-        }
-
-        if (dataSaved)
         {
             jpaApi.em().persist(unit);
-            session().put("UnitId",Integer.toString(unit.getUnitId()));
+            session().put("UnitId", Integer.toString(unit.getUnitId()));
             return redirect("/newartifact");
-        }
-        else
-        {
-            return ok(result + " ------ not saved");
         }
 
     }
 
 
-    private boolean checkDuplicate(Unit enteredUnit)
+    private boolean checkDuplicate(int fieldSiteNumber, String areaLetter, int unitNumber, int startDepth)
     {
         boolean isDuplicate = false;
 
-        String sql = "SELECT u FROM Unit u";
+        String sql = "SELECT u FROM Unit u WHERE u.fieldSiteNumber = :fieldsitenumber";
+        List<Unit> unitCheck = jpaApi.em().createQuery(sql, Unit.class).setParameter("fieldsitenumber", fieldSiteNumber).getResultList();
 
-        List<Unit> units = jpaApi.em().createQuery(sql, Unit.class).getResultList();
-        int fsnCheck;
-        String areaCheck;
-        int unitNumberCheck;
-        int startDepth;
-
-
-        for(Unit unit : units)
+        if (unitCheck.size() > 0)
         {
-            fsnCheck = unit.getFieldSiteNumber();
-            areaCheck = unit.getAreaLetter();
-            unitNumberCheck = unit.getUnitNumber();
-            startDepth = unit.getStartDepth();
+            isDuplicate = true;
+        }
+        else
+        {
+            sql = "SELECT u FROM Unit u WHERE u.areaLetter = :arealetter AND u.unitNumber = :unitnumber AND u.startDepth = :startdepth";
 
-            if(fsnCheck == enteredUnit.getFieldSiteNumber())
+            unitCheck = jpaApi.em().createQuery(sql, Unit.class).setParameter("arealetter", areaLetter)
+                    .setParameter("unitnumber", unitNumber).setParameter("startdepth", startDepth).getResultList();
+
+            if (unitCheck.size() > 0)
             {
                 isDuplicate = true;
             }
-            else if(areaCheck.equals(enteredUnit.getAreaLetter()) && unitNumberCheck == enteredUnit.getUnitNumber() && startDepth == enteredUnit.getStartDepth())
-            {
-                isDuplicate = true;
-            }
-
         }
 
         return isDuplicate;
+    }
+
+    private boolean checkDepths(int startDepth, int endDepth)
+    {
+        boolean result = true;
+        if (startDepth > endDepth || startDepth == 10)
+        {
+
+            result = false;
+        }
+        else if ((startDepth == 0 && endDepth != 20) || (startDepth >= 20 && endDepth != startDepth + 10))
+        {
+            result = false;
+        }
+
+        return result;
+
+    }
+
+    @Transactional
+    public Result getUnitTable()
+    {
+        String sql = "SELECT u FROM Unit u ORDER BY u.fieldSiteNumber";
+        List<Unit> units = jpaApi.em().createQuery(sql, Unit.class).getResultList();
+
+        return ok(views.html.unittable.render(units));
+
+
     }
 
 

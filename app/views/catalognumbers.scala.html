@@ -1,0 +1,93 @@
+@(catalogNumbers : List[CatalogNumber], unit : Unit)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Catalog Numbers</title>
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/lib/popper.js/umd/popper.min.js"></script>
+</head>
+<body>
+<div class="row">
+    <div class="col-12 " >
+        <div class="media border p-2 bg-light text-center">
+            <div class="media-body">
+                <h1>Unit: @unit.getAreaLetter-@unit.getUnitNumber</h1>
+                <h4>FSN: @unit.getFieldSiteNumber</h4>
+                <h4>@unit.getStartDepth - @unit.getEndDepth cmbd</h4>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-2 bg-secondary">
+            <div class="row">
+                <div class="col-12">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-7">
+                    <a class="btn btn-block btn-info" type="button" href="/">Home</a>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-7">
+                    <a class="btn btn-info btn-block" type="button" href="/newunit">New Unit</a>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-7">
+                    <a class="btn btn-block btn-info" type="button" href="/newartifact">Go Back</a>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-4">
+            <table class="table table-striped table-bordered text-center">
+                <thead>
+                <tr>
+                    <th>Catalog Numbers</th>
+                </tr>
+                </thead>
+                <tbody>
+                @for(catalogNumber <- catalogNumbers){
+                @if(catalogNumber.getASN3Id == null){
+                <tr>
+                    <td>@catalogNumber.getAccessionNumber-@catalogNumber.getFieldSiteNumber-@catalogNumber.getLSNId-@catalogNumber.getASN1Id-@catalogNumber.getASN2Id</td>
+                </tr>
+                }else{
+                <tr>
+                    <td>@catalogNumber.getAccessionNumber-@catalogNumber.getFieldSiteNumber-@catalogNumber.getLSNId-@catalogNumber.getASN1Id-@catalogNumber.getASN2Id-@catalogNumber.getASN3Id</td>
+                </tr>
+                }
+
+                }
+                </tbody>
+            </table>
+        </div>
+
+
+    </div>
+</div>
+</body>
+</html>

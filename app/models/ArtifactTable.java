@@ -2,84 +2,80 @@ package models;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @Entity
 public class ArtifactTable
 {
     @Id private int artifactId;
-    private int fieldSiteNumber;
-    private String areaLetter;
-    private int unitNumber;
-    private int startDepth;
-    private int endDepth;
-    private int periodId;
-    private int LSNId;
-    private int ASN1Id;
-    private int ASN2Id;
-    private Integer ASN3Id;
+    private String LSNName;
+    private String ASN1Name;
+    private String ASN2Name;
+    private String ASN3Name;
+    private int quantity;
+    private BigDecimal weight;
+    private LocalDate dateAnalyzed;
+    private String imageKey;
 
-    public ArtifactTable(int artifactId, int fieldSiteNumber, String areaLetter, int unitNumber, int startDepth, int endDepth, int periodId, int LSNId, int ASN1Id, int ASN2Id, Integer ASN3Id)
+    public ArtifactTable(int artifactId, String LSNName, String ASN1Name, String ASN2Name, String ASN3Name, int quantity, BigDecimal weight, LocalDate dateAnalyzed, String imageKey)
     {
         this.artifactId = artifactId;
-        this.fieldSiteNumber = fieldSiteNumber;
-        this.areaLetter = areaLetter;
-        this.unitNumber = unitNumber;
-        this.startDepth = startDepth;
-        this.endDepth = endDepth;
-        this.periodId = periodId;
-        this.LSNId = LSNId;
-        this.ASN1Id = ASN1Id;
-        this.ASN2Id = ASN2Id;
-        this.ASN3Id = ASN3Id;
+        this.LSNName = LSNName;
+        this.ASN1Name = ASN1Name;
+        this.ASN2Name = ASN2Name;
+        this.ASN3Name = ASN3Name;
+        this.quantity = quantity;
+        this.weight = weight;
+        this.dateAnalyzed = dateAnalyzed;
+        this.imageKey = imageKey;
     }
 
-    public int getFieldSiteNumber()
+    public int getArtifactId()
     {
-        return fieldSiteNumber;
+        return artifactId;
     }
 
-    public String getAreaLetter()
+    public String getImageKey()
     {
-        return areaLetter;
+        return imageKey;
     }
 
-    public int getUnitNumber()
+    public String getLSNName()
     {
-        return unitNumber;
+        return LSNName;
     }
 
-    public int getStartDepth()
+    public String getASN1Name()
     {
-        return startDepth;
+        return ASN1Name;
     }
 
-    public int getEndDepth()
+    public String getASN2Name()
     {
-        return endDepth;
+        return ASN2Name;
     }
 
-    public int getPeriodId()
+    public String getASN3Name()
     {
-        return periodId;
+        return ASN3Name;
     }
 
-    public int getLSNId()
+    public int getQuantity()
     {
-        return LSNId;
+        return quantity;
     }
 
-    public int getASN1Id()
+    public BigDecimal getWeight()
     {
-        return ASN1Id;
+        return weight;
     }
 
-    public int getASN2Id()
+    public LocalDate getDateAnalyzed()
     {
-        return ASN2Id;
+        return dateAnalyzed;
     }
 
-    public Integer getASN3Id()
-    {
-        return ASN3Id;
-    }
+
+
 }

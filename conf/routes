@@ -3,34 +3,22 @@
 # ~~~~
 
 
-GET     /artifacttable              controllers.TableController.getArtifactTable
+GET     /                               controllers.StartController.getHomePage
+
+GET     /newartifact                    controllers.ArtifactController.getNewArtifact
+POST    /newartifact                    controllers.ArtifactController.postNewArtifact
+GET     /existingartifacts/:unitId      controllers.ArtifactController.getExistingArtifacts(unitId:Integer)
+GET     /artifactimage/:artifactId      controllers.ArtifactController.getArtifactImage(artifactId:Integer)
+GET     /catalognumbers/:unitId         controllers.ArtifactController.getCatalogNumbers(unitId:Integer)
+
+GET     /newunit                        controllers.UnitController.getNewUnit
+POST    /newunit                        controllers.UnitController.postNewUnit
+GET     /unittable                      controllers.UnitController.getUnitTable
 
 
-GET     /newartifact                controllers.ArtifactController.getNewArtifact
-POST    /newartifact                controllers.ArtifactController.postNewArtifact
+GET     /import                         controllers.ImportController.importUnit
+GET     /import2                        controllers.ImportController.importArtifact
 
-GET     /newunit                    controllers.UnitController.getNewUnit
-POST    /newunit                    controllers.UnitController.postNewUnit
-
-
-
-
-
-
-
-GET     /import                     controllers.ImportController.importUnit
-GET     /import2                    controllers.ImportController.importArtifact
-
-
-
-
-
-# An example controller showing a sample home page
-GET     /                           controllers.HomeController.index
-# An example controller showing how to use dependency injection
-GET     /count                      controllers.CountController.count
-# An example controller showing how to write asynchronous code
-GET     /message                    controllers.AsyncController.message
 
 # Map static resources from the /public folder to the /assets URL path
 GET     /assets/*file               controllers.Assets.versioned(path="/public", file: Asset)
