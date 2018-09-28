@@ -1,0 +1,132 @@
+@(pieChartValues : ChartValues, lineChartValues : ChartValues, flakeChartValues : ChartValues)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Report Charts</title>
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/lib/popper.js/umd/popper.min.js"></script>
+    <script src="/assets/lib/chart.js/dist/Chart.bundle.js"></script>
+
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <nav class="navbar navbar-expand bg-dark navbar-dark fixed-top">
+                    <h3 class="text-white">Report Tools</h3>
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="/chart">Statistics</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav">
+                        <li class="nav-item justify-content-end">
+                            <a class="nav-link text-primary" href="/">Go Home</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-7">
+                <h2 class="text-center">Heat Modified Lithics</h2>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div id="canvas-holder" style="width:40%">
+                    <canvas id="chart-ASN3"></canvas>
+                </div>
+                <script src="/assets/javascripts/heatmodifiedchart.js"
+                        id="script-ASN3"
+                        data-values="@pieChartValues.getData"
+                        data-labels="@pieChartValues.getLabels"
+                        data-colors="@pieChartValues.getColors"></script>
+            </div>
+            <div class="col-2"></div>
+        </div>
+
+        <div class="row">
+            <div class="col-12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-7">
+                <h2 class="text-center">Artifacts Per Level</h2>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-8">
+                <div id="line-canvas-holder" style="width:40%">
+                    <canvas id="chart-perlevel"></canvas>
+                </div>
+                <script src="/assets/javascripts/chartperlevel.js"
+                        id="script-perlevel"
+                        data-values="@lineChartValues.getData"
+                        data-labels="@lineChartValues.getLabels"></script>
+            </div>
+            <div class="col-2"></div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                &nbsp;
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-2"></div>
+            <div class="col-7">
+                <h2 class="text-center">Flake Types Over Entire Site</h2>
+            </div>
+            <div class="col-3"></div>
+        </div>
+        <div class="row">
+            <div class="col-1"></div>
+            <div class="col-9">
+                <div id="bar-canvas-holder" style="width:40%">
+                    <canvas id="chart-flaketype"></canvas>
+                </div>
+                <script src="/assets/javascripts/flaketypechart.js"
+                        id="script-flaketype"
+                        data-values="@flakeChartValues.getData"
+                        data-labels="@flakeChartValues.getLabels"></script>
+            </div>
+            <div class="col-2"></div>
+        </div>
+    </div>
+</body>
+</html>

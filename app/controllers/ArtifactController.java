@@ -147,7 +147,15 @@ public class ArtifactController extends Controller
         try
         {
             picture = Files.toByteArray(file);
-            newArtifact.setImage(picture);
+            if(picture.length > 0)
+            {
+                newArtifact.setImage(picture);
+            }
+            else
+            {
+                newArtifact.setImage(null);
+            }
+
         }
         catch (Exception e)
         {
@@ -203,5 +211,141 @@ public class ArtifactController extends Controller
         String unitIdString = Integer.toString(unitId);
         session().put("UnitId", unitIdString);
         return ok(views.html.catalognumbers.render(catalogNumbers, currentUnit));
+    }
+
+    @Transactional(readOnly = true)
+    public Result getEditArtifact(int artifactId)
+    {
+        String sql = "SELECT a FROM Artifact a WHERE a.artifactId = :artifactId";
+        Artifact artifact = jpaApi.em().createQuery(sql, Artifact.class).setParameter("artifactId", artifactId).getSingleResult();
+
+        String unitIdString = session().get("UnitId");
+        int unitId = Integer.parseInt(unitIdString);
+
+        sql = "SELECT u FROM Unit u WHERE u.unitId = :unitId";
+        Unit currentUnit = jpaApi.em().createQuery(sql, Unit.class).setParameter("unitId", unitId).getSingleResult();
+
+        sql = "SELECT l FROM LSN l";
+        List<LSN> lsnList = jpaApi.em().createQuery(sql, LSN.class).getResultList();
+
+        sql = "SELECT a FROM ASN1 a";
+        List<ASN1> asn1List = jpaApi.em().createQuery(sql, ASN1.class).getResultList();
+
+        sql = "SELECT a FROM ASN2 a";
+        List<ASN2> asn2List = jpaApi.em().createQuery(sql, ASN2.class).getResultList();
+
+        sql = "SELECT a FROM ASN3 a";
+        List<ASN3> asn3List = jpaApi.em().createQuery(sql, ASN3.class).getResultList();
+
+        sql = "SELECT l FROM LabTechnician l";
+        List<LabTechnician> labTechnicians = jpaApi.em().createQuery(sql, LabTechnician.class).getResultList();
+
+        return ok(views.html.editartifact.render(artifact, currentUnit,lsnList, asn1List, asn2List, asn3List, labTechnicians));
+    }
+
+    @Transactional
+    public Result postEditArtifact(int artifactId)
+    {
+        DynamicForm form = formFactory.form().bindFromRequest();
+
+        String unitIdString = session().get("UnitId");
+        int unitId = Integer.parseInt(unitIdString);
+
+        String lsnString = form.get("LSN");
+        int lsnId = Integer.parseInt(lsnString);
+
+        String asn1String = form.get("ASN1");
+        int asn1Id = Integer.parseInt(asn1String);
+
+        String asn2String = form.get("ASN2");
+        int asn2Id = Integer.parseInt(asn2String);
+
+        String asn3String = form.get("ASN3");
+        Integer asn3Id;
+        if(asn3String.equals(""))
+        {
+            asn3Id = null;
+        }
+        else
+        {
+            asn3Id = Integer.parseInt(asn3String);
+        }
+
+        String additionalDescription = form.get("description");
+        if(additionalDescription.isEmpty())
+        {
+            additionalDescription = null;
+        }
+
+        String quantityString = form.get("quantity");
+        int quantity = Integer.parseInt(quantityString);
+
+        String weightString = form.get("weight");
+        BigDecimal weight = new BigDecimal(weightString);
+
+        String labTechString = form.get("labtechnician");
+        int labTechnicianId = Integer.parseInt(labTechString);
+
+        String dateString = form.get("dateanalyzed");
+        LocalDate dateAnalyzed = LocalDate.parse(dateString);
+
+        String imageKey = form.get("imagekey");
+        if(imageKey.isEmpty())
+        {
+            imageKey = null;
+        }
+
+        String notes = form.get("notes");
+        if(notes.isEmpty())
+        {
+            notes = null;
+        }
+
+
+        Http.MultipartFormData<File> formData = request().body().asMultipartFormData();
+        Http.MultipartFormData.FilePart<File> filePart = formData.getFile("image");
+        File file = filePart.getFile();
+
+        byte[] picture;
+
+
+
+        String sql = "SELECT a FROM Artifact a WHERE a.artifactId = :artifactId";
+
+        Artifact artifact = jpaApi.em().createQuery(sql, Artifact.class).setParameter("artifactId", artifactId).getSingleResult();
+
+        artifact.setUnitId(unitId);
+        //period set to type 2 for project purposes
+        artifact.setPeriodId(2);
+        artifact.setLSNId(lsnId);
+        artifact.setASN1Id(asn1Id);
+        artifact.setASN2Id(asn2Id);
+        artifact.setASN3Id(asn3Id);
+        artifact.setAdditionalDescription(additionalDescription);
+        artifact.setQuantity(quantity);
+        artifact.setWeight(weight);
+        artifact.setLabTechnicianId(labTechnicianId);
+        artifact.setDateAnalyzed(dateAnalyzed);
+        artifact.setNotes(notes);
+        artifact.setImageKey(imageKey);
+        try
+        {
+            picture = Files.toByteArray(file);
+            if(picture.length > 0)
+            {
+                artifact.setImage(picture);
+            }
+            else
+            {
+                artifact.setImage(null);
+            }
+
+        }
+        catch (Exception e)
+        {
+            picture = null;
+        }
+
+        return redirect("/existingartifacts/" + unitId);
     }
 }

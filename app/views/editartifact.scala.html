@@ -1,0 +1,175 @@
+@(artifact : Artifact, unit : Unit, lsnList : List[LSN], asn1List : List[ASN1], asn2List : List[ASN2], asn3List : List[ASN3], labTechList : List[LabTechnician])
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Artifact</title>
+    <link rel="stylesheet" href="/assets/lib/bootstrap/css/bootstrap.min.css">
+    <script src="/assets/lib/jquery/jquery.min.js"></script>
+    <script src="/assets/lib/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/lib/popper.js/umd/popper.min.js"></script>
+</head>
+<body>
+<div class="row">
+    <div class="col-12 ">
+        <div class="media border p-2 bg-light text-center">
+            <div class="media-body">
+                <h1>Unit: @unit.getAreaLetter-@unit.getUnitNumber</h1>
+                <h4>FSN: @unit.getFieldSiteNumber</h4>
+                <h4>@unit.getStartDepth - @unit.getEndDepth cmbd</h4>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-2 bg-secondary">
+            <div class="row">
+                <div class="col-12">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-7">
+                    <a class="btn btn-block btn-info" type="button" href="/">Home</a>
+                </div>
+                <div class="col-3"></div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    &nbsp;
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-2"></div>
+                <div class="col-7">
+                    <a class="btn btn-info btn-block" type="button" href="/existingartifacts/@unit.getUnitId">Go Back</a>
+                </div>
+                <div class="col-3"></div>
+            </div>
+        </div>
+        <div class="col-10">
+            <form method="POST" enctype="multipart/form-data">
+                @helper.CSRF.formField
+                <div class="row">
+                    <div class="col-3">
+                        <label for="LSN"><b>LSN: </b></label><br>
+                        @for(lsn <- lsnList){
+                            @if(artifact.getLSNId == lsn.getLSNId){
+                                <input type="radio" name="LSN" id="LSN" checked value="@lsn.getLSNId" required> @lsn.getLSNName<br>
+                            }else{
+                                <input type="radio" name="LSN" id="LSN" value="@lsn.getLSNId" required> @lsn.getLSNName<br>
+                            }
+                        }
+                    </div>
+                    <div class="col-3">
+                        <div class="row">
+                            <label for="ASN1"><b>ASN1: </b></label>
+                            <select class="form-control" name="ASN1" id="ASN1">
+                                @for(asn1 <- asn1List){
+                                    @if(asn1.getASN1Id == artifact.getASN1Id){
+                                        <option value="@asn1.getASN1Id" selected="selected">@asn1.getASN1Name</option>
+                                    }else{
+                                        <option value="@asn1.getASN1Id">@asn1.getASN1Name</option>
+                                    }
+
+                                }
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label for="ASN2"><b>ASN2: </b></label>
+                            <select class="form-control" name="ASN2" id="ASN2">
+                                @for(asn2 <- asn2List){
+                                    @if(asn2.getASN2Id == artifact.getASN2Id){
+                                        <option value="@asn2.getASN2Id" selected="selected">@asn2.getASN2Name</option>
+                                    }else{
+                                        <option value="@asn2.getASN2Id">@asn2.getASN2Name</option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                        <div class="row">
+                            <label for="ASN3"><b>ASN3: </b></label>
+                            <select class="form-control" name="ASN3" id="ASN3">
+                                <option value="">None</option>
+                                @for(asn3 <- asn3List){
+                                    @if(asn3.getASN3Id == artifact.getASN3Id){
+                                        <option selected="selected" value="@asn3.getASN3Id">@asn3.getASN3Name</option>
+                                    }else{
+                                        <option value="@asn3.getASN3Id">@asn3.getASN3Name</option>
+                                    }
+
+                                }
+                            </select><br>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <label for="description"><b>Additional Description: </b></label>
+                        <textarea class="form-control" id="description" name="description">@artifact.getAdditionalDescription</textarea><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="quantity"><b>Quantity: </b></label>
+                        <input class="form-control" type="number" name="quantity" id="quantity" value="@artifact.getQuantity" required>
+                    </div>
+                    <div class="col-4">
+                        <label for="weight"><b>Weight(g): </b></label>
+                        <input class="form-control" type="number" step="any" min="0" name="weight" id="weight" value="@artifact.getWeight" required>
+                    </div>
+                    <div class="col-4">
+                        <label for="date"><b>Date Analyzed: </b></label>
+                        <input class="form-control" type="date" name="dateanalyzed" id="date" value="@artifact.getDateAnalyzed" required><br>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-4">
+                        <label for="imagekey"><b>Image Key: </b></label>
+                        <input class="form-control" type="text" id="imagekey" name="imagekey" value="@artifact.getImageKey">
+                    </div>
+                    <div class="col-4">
+                        <label for="image"><b>Select Image: </b></label>
+                        <div class="file-field">
+                            <div class="btn btn-info btn-sm float-left">
+                                <span>Choose file</span>
+                                <input type="file" id="image" name="image">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-4">
+                        <label for="labtechnician"><b>Lab Technician: </b></label><br>
+                        @for(labTechnician <- labTechList){
+                            @if(labTechnician.getLabTechnicianId == artifact.getLabTechnicianId){
+                                <input type="radio"  id="labtechnician" name="labtechnician" value="@labTechnician.getLabTechnicianId" checked required> @labTechnician.getLabTechnicianInitials<br>
+                             }else{
+                                <input type="radio" id="labtechnician" name="labtechnician" value="@labTechnician.getLabTechnicianId" required> @labTechnician.getLabTechnicianInitials<br>
+                             }
+                        }
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        <label for="notes"><b>Notes: </b></label>
+                        <textarea class="form-control" id="notes" name="notes">@artifact.getNotes</textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-12">
+                        &nbsp;
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-8"></div>
+                    <div class="col-4">
+                        <input type="Submit" class="btn btn-warning btn-block" value="Update">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

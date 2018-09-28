@@ -10,10 +10,15 @@ POST    /newartifact                    controllers.ArtifactController.postNewAr
 GET     /existingartifacts/:unitId      controllers.ArtifactController.getExistingArtifacts(unitId:Integer)
 GET     /artifactimage/:artifactId      controllers.ArtifactController.getArtifactImage(artifactId:Integer)
 GET     /catalognumbers/:unitId         controllers.ArtifactController.getCatalogNumbers(unitId:Integer)
+GET     /editartifact/:artifactId       controllers.ArtifactController.getEditArtifact(artifactId:Integer)
+POST    /editartifact/:artifactId       controllers.ArtifactController.postEditArtifact(artifactId:Integer)
 
 GET     /newunit                        controllers.UnitController.getNewUnit
 POST    /newunit                        controllers.UnitController.postNewUnit
 GET     /unittable                      controllers.UnitController.getUnitTable
+
+GET     /charts                         controllers.ReportController.getHeatModifiedChart
+
 
 
 GET     /import                         controllers.ImportController.importUnit
