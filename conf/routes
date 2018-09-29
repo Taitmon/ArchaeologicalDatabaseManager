@@ -19,10 +19,11 @@ GET     /unittable                      controllers.UnitController.getUnitTable
 
 GET     /charts                         controllers.ReportController.getHeatModifiedChart
 
-
-
 GET     /import                         controllers.ImportController.importUnit
 GET     /import2                        controllers.ImportController.importArtifact
+
+
+GET     /pdf                            controllers.ReportController.getDocument
 
 
 # Map static resources from the /public folder to the /assets URL path

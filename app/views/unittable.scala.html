@@ -13,7 +13,7 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-12">
-            <nav class="navbar navbar-expand-sm bg-dark navbar-dark fixed-top">
+            <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
                 <h3 class="text-white">Unit Table</h3>
                 <ul class="navbar-nav">
                     <li class="nav-item">
@@ -23,29 +23,31 @@
             </nav>
         </div>
     </div>
-    <table class="table text-center">
-        <thead>
-            <tr >
-                <th>FSN</th><th>Area</th><th>Unit</th><th>Depth(cmbd)</th>
-            </tr>
-        </thead>
-        <tbody>
-        @for(unit <- units){
-            <form action="@routes.ArtifactController.getNewArtifact">
-                @helper.CSRF.formField
-                <tr>
-                    <td><input type="submit" class="btn btn-outline-info btn-block" value="@unit.getFieldSiteNumber"</td>
-                    <td>@unit.getAreaLetter</td>
-                    <td>@unit.getUnitNumber</td>
-                    <td>@unit.getStartDepth - @unit.getEndDepth</td>
-                    <input type="hidden" id="UnitId" name="UnitId" value="@unit.getUnitId">
-                </tr>
-            </form>
-            }
-        </tbody>
-
-
-    </table>
+    <div class="row">
+        <div class="col-12">
+            <table class="table text-center">
+                <thead>
+                    <tr >
+                        <th>FSN</th><th>Area</th><th>Unit</th><th>Depth(cmbd)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                @for(unit <- units){
+                    <form action="@routes.ArtifactController.getNewArtifact">
+                        @helper.CSRF.formField
+                        <tr>
+                            <td><input type="submit" class="btn btn-outline-info btn-block" value="@unit.getFieldSiteNumber"</td>
+                            <td>@unit.getAreaLetter</td>
+                            <td>@unit.getUnitNumber</td>
+                            <td>@unit.getStartDepth - @unit.getEndDepth</td>
+                            <input type="hidden" id="UnitId" name="UnitId" value="@unit.getUnitId">
+                        </tr>
+                    </form>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 </body>
 </html>

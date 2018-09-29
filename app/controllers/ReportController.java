@@ -1,14 +1,12 @@
 package controllers;
 
-import models.ASN3Count;
-import models.ChartValues;
-import models.DepthCount;
-import models.FlakeTypeCount;
+import models.*;
 import play.data.FormFactory;
 import play.db.jpa.JPAApi;
 import play.db.jpa.Transactional;
 import play.mvc.Controller;
 import play.mvc.Result;
+import services.PDF;
 
 import javax.inject.Inject;
 import java.util.List;
@@ -38,15 +36,14 @@ public class ReportController extends Controller
 
         ChartValues pieChartValues = new ChartValues();
 
-
         String data = asn3Counts.stream()
-                        .map(asn3Count -> Long.toString(asn3Count.getNumberOfArtifacts()))
-                        .collect(Collectors.joining(","));
+                .map(asn3Count -> Long.toString(asn3Count.getNumberOfArtifacts()))
+                .collect(Collectors.joining(","));
         pieChartValues.setData(data);
 
         String labels = asn3Counts.stream()
-                            .map(asn3Count -> asn3Count.getASN3Name())
-                            .collect(Collectors.joining(","));
+                .map(asn3Count -> asn3Count.getASN3Name())
+                .collect(Collectors.joining(","));
         pieChartValues.setLabels(labels);
 
         String rgb = asn3Counts.stream()
@@ -93,11 +90,40 @@ public class ReportController extends Controller
 
         flakeChartValues.setLabels(barLabels);
 
-
-
-        return ok(views.html.heatmodifiedchart.render(pieChartValues, lineChartValues, flakeChartValues));
+        return ok(views.html.reportcharts.render(pieChartValues, lineChartValues, flakeChartValues));
     }
 
+    @Transactional
+    public Result getDocument()
+    {
+        //siteInfo for project/demo purposes assumed 2;
+        int siteInfoId = 2;
+
+        String sql = "SELECT NEW models.FinalSiteInfo(s.siteInfoId, s.projectNumber, c.countyName, t.stateId, CONCAT(t.stateNumber, c.countyId, s.siteNumber) AS stateSiteNumber) " +
+                "FROM SiteInfo s " +
+                "JOIN County c ON c.countyId = s.countyId " +
+                "JOIN State t ON t.stateId = c.stateId " +
+                "WHERE s.siteInfoId = :siteInfoId";
+
+        FinalSiteInfo finalSiteInfo = jpaApi.em().createQuery(sql, FinalSiteInfo.class).setParameter("siteInfoId", siteInfoId).getSingleResult();
+
+
+
+        sql = "SELECT NEW models.FinalReportTable(a.artifactId, u.fieldSiteNumber, u.areaLetter, u.unitNumber, u.startDepth, u.endDepth, a.LSNId, w.LSNName, " +
+                "a.ASN1Id, g.ASN1Name, a.ASN2Id, f.ASN2Name, a.ASN3Id, z.ASN3Name, a.quantity, a.weight, a.dateAnalyzed, l.labTechnicianInitials) FROM Artifact a " +
+                "JOIN Unit u ON u.unitId = a.unitId " +
+                "JOIN LabTechnician l ON l.labTechnicianId = a.labTechnicianId " +
+                "JOIN LSN w ON w.LSNId = a.LSNId " +
+                "JOIN ASN1 g ON g.ASN1Id = a.ASN1Id " +
+                "JOIN ASN2 f ON f.ASN2Id = a.ASN2Id " +
+                "LEFT OUTER JOIN ASN3 z ON z.ASN3Id = a.ASN3Id " +
+                "ORDER BY u.unitId, u.startDepth";
+
+        List<FinalReportTable> finalReportValues = jpaApi.em().createQuery(sql, FinalReportTable.class).getResultList();
+
+
+        return ok(PDF.getPDF(finalReportValues, finalSiteInfo)).as("application/pdf");
+    }
 
 
 }

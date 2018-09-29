@@ -15,6 +15,10 @@ libraryDependencies += "org.webjars" % "bootstrap" % "4.1.3"
 libraryDependencies += "com.amazonaws" % "aws-java-sdk" % "1.11.415"
 libraryDependencies += "org.webjars.npm" % "chart.js" % "2.7.2"
 
+libraryDependencies += "com.itextpdf" % "kernel" % "7.1.1"
+libraryDependencies += "com.itextpdf" % "io" % "7.1.1"
+libraryDependencies += "com.itextpdf" % "layout" % "7.1.1"
+
 //Database
 libraryDependencies += javaJpa
 libraryDependencies += javaJdbc

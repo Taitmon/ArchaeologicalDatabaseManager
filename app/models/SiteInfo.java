@@ -7,7 +7,8 @@ import javax.persistence.Id;
 public class SiteInfo
 {
     @Id private int siteInfoId;
-    private int countyId;
+    private int siteNumber;
+    private String countyId;
     private String projectNumber;
     private String accessionNumber;
 
@@ -16,7 +17,7 @@ public class SiteInfo
         return siteInfoId;
     }
 
-    public int getCountyId()
+    public String getCountyId()
     {
         return countyId;
     }
@@ -29,5 +30,10 @@ public class SiteInfo
     public String getAccessionNumber()
     {
         return accessionNumber;
+    }
+
+    public int getSiteNumber()
+    {
+        return siteNumber;
     }
 }
