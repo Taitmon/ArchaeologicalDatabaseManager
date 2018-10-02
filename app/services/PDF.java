@@ -1,19 +1,15 @@
 package services;
 
 
-import com.itextpdf.kernel.font.PdfFont;
-import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.geom.PageSize;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
-import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.layout.Document;
 
 import com.itextpdf.layout.element.Paragraph;
 import com.itextpdf.layout.element.Tab;
 import com.itextpdf.layout.element.Table;
 import com.itextpdf.layout.element.Text;
-import com.itextpdf.layout.property.HorizontalAlignment;
 import com.itextpdf.layout.property.TextAlignment;
 import models.FinalReportTable;
 import models.FinalSiteInfo;
@@ -22,7 +18,6 @@ import models.FinalSiteInfo;
 import java.io.ByteArrayOutputStream;
 import java.util.List;
 
-import static com.itextpdf.io.font.constants.StandardFonts.HELVETICA_BOLD;
 
 public class PDF
 {
@@ -33,27 +28,67 @@ public class PDF
         PdfDocument pdfDocument = new PdfDocument(writer);
         Document document = new Document(pdfDocument, PageSize.A4.rotate());
 
+        Text space = new Text("\n");
+        Tab tab = new Tab();
+
         Text reportHeader = new Text("Final Artifact Table");
         reportHeader.setFontSize(20);
         reportHeader.setBold();
-        Text space = new Text("\n");
-
 
         Paragraph paragraph = new Paragraph();
         paragraph.add(reportHeader);
         paragraph.add(space);
-        //paragraph.setTextAlignment(TextAlignment.CENTER);
 
-
-        Text projectNumber = new Text("Project Number: " + finalSiteInfo.getProjectNumber());
-        projectNumber.setFontSize(15);
+        Text projectNumberHeading = new Text("Project Number:  ");
+        projectNumberHeading.setFontSize(12);
+        projectNumberHeading.setBold();
+        paragraph.add(projectNumberHeading);
+        Text projectNumber = new Text(finalSiteInfo.getProjectNumber());
+        projectNumber.setFontSize(12);
         paragraph.add(projectNumber);
+        paragraph.add(tab);
+        paragraph.add(tab);
+        paragraph.add(tab);
 
-        Text stateSiteNumber = new Text("State Site Number: " + finalSiteInfo.getStateSiteNumber());
-        stateSiteNumber.setFontSize(15);
-        paragraph.add(space);
+        Text stateSiteNumberHeader = new Text("State Site Number:  ");
+        stateSiteNumberHeader.setFontSize(12);
+        stateSiteNumberHeader.setBold();
+        paragraph.add(stateSiteNumberHeader);
+        Text stateSiteNumber = new Text(finalSiteInfo.getStateSiteNumber());
+        stateSiteNumber.setFontSize(12);
         paragraph.add(stateSiteNumber);
+        paragraph.add(space);
 
+        Text accessionNumberHeader = new Text("Accession Number:  ");
+        accessionNumberHeader.setFontSize(12);
+        accessionNumberHeader.setBold();
+        paragraph.add(accessionNumberHeader);
+        Text accessionNumber = new Text(finalSiteInfo.getAccessionNumber());
+        accessionNumber.setFontSize(12);
+        paragraph.add(accessionNumber);
+        paragraph.add(tab);
+        paragraph.add(tab);
+
+
+        Text countyHeader = new Text("County:  ");
+        countyHeader.setFontSize(12);
+        countyHeader.setBold();
+        paragraph.add(countyHeader);
+        Text county = new Text(finalSiteInfo.getCountyName());
+        county.setFontSize(12);
+        paragraph.add(county);
+        paragraph.add(tab);
+        paragraph.add(tab);
+        paragraph.add(tab);
+
+
+        Text stateHeader = new Text("State:  ");
+        stateHeader.setFontSize(12);
+        stateHeader.setBold();
+        paragraph.add(stateHeader);
+        Text state = new Text(finalSiteInfo.getStateId());
+        state.setFontSize(12);
+        paragraph.add(state);
 
 
         Table table = new Table(13);
@@ -70,7 +105,7 @@ public class PDF
         table.addHeaderCell("Quantity");
         table.addHeaderCell("Weight\n(g)");
         table.addHeaderCell("Date Analyzed");
-        table.addHeaderCell("Lab Technician");
+        table.addHeaderCell("Lab\nTechnician");
 
         for(FinalReportTable finalReportTable : finalReportValues)
         {
@@ -92,7 +127,7 @@ public class PDF
             {
                 table.addCell(finalReportTable.getASN3Name());
             }
-            table.addCell(finalReportTable.getCatalogSuffix());
+            table.addCell(finalSiteInfo.getAccessionNumber() + "-" + finalReportTable.getCatalogSuffix());
             String quantityString = Integer.toString(finalReportTable.getQuantity());
             table.addCell(quantityString);
             String weightString = finalReportTable.getWeight().toString();
@@ -104,18 +139,6 @@ public class PDF
 
         }
 
-
-
-
-
-       /* try
-        {
-            PdfFont font = PdfFontFactory.createFont(HELVETICA_BOLD);
-            paragraph.setFont(font);
-        }catch (Exception e)
-        {
-            String blah = "blah";
-        }*/
 
         document.setFontSize(8);
         document.add(paragraph);

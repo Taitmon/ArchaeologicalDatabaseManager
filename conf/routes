@@ -17,12 +17,12 @@ GET     /newunit                        controllers.UnitController.getNewUnit
 POST    /newunit                        controllers.UnitController.postNewUnit
 GET     /unittable                      controllers.UnitController.getUnitTable
 
-GET     /charts                         controllers.ReportController.getHeatModifiedChart
 
 GET     /import                         controllers.ImportController.importUnit
 GET     /import2                        controllers.ImportController.importArtifact
 
-
+GET     /charts                         controllers.ReportController.getHeatModifiedChart
+GET     /finaltable                     controllers.ReportController.getFinalArtifactTable
 GET     /pdf                            controllers.ReportController.getDocument
 
 

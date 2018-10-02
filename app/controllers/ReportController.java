@@ -93,13 +93,38 @@ public class ReportController extends Controller
         return ok(views.html.reportcharts.render(pieChartValues, lineChartValues, flakeChartValues));
     }
 
+    @Transactional(readOnly = true)
+    public Result getFinalArtifactTable()
+    {
+        String sql = "SELECT NEW models.FinalReportTable(a.artifactId, u.fieldSiteNumber, u.areaLetter, u.unitNumber, u.startDepth, u.endDepth, a.LSNId, w.LSNName, " +
+                "a.ASN1Id, g.ASN1Name, a.ASN2Id, f.ASN2Name, a.ASN3Id, z.ASN3Name, a.quantity, a.weight, a.dateAnalyzed, l.labTechnicianInitials) FROM Artifact a " +
+                "JOIN Unit u ON u.unitId = a.unitId " +
+                "JOIN LabTechnician l ON l.labTechnicianId = a.labTechnicianId " +
+                "JOIN LSN w ON w.LSNId = a.LSNId " +
+                "JOIN ASN1 g ON g.ASN1Id = a.ASN1Id " +
+                "JOIN ASN2 f ON f.ASN2Id = a.ASN2Id " +
+                "LEFT OUTER JOIN ASN3 z ON z.ASN3Id = a.ASN3Id " +
+                "ORDER BY u.unitId, u.startDepth";
+
+        List<FinalReportTable> finalReportValues = jpaApi.em().createQuery(sql, FinalReportTable.class).getResultList();
+
+        //siteInfo for project/demo purposes assumed 2;
+        int siteInfoId = 2;
+
+        sql = "SELECT s FROM SiteInfo s WHERE s.siteInfoId = :siteInfoId";
+
+        SiteInfo siteInfo = jpaApi.em().createQuery(sql, SiteInfo.class).setParameter("siteInfoId", siteInfoId).getSingleResult();
+
+        return ok(views.html.finaltable.render(finalReportValues, siteInfo));
+    }
+
     @Transactional
     public Result getDocument()
     {
         //siteInfo for project/demo purposes assumed 2;
         int siteInfoId = 2;
 
-        String sql = "SELECT NEW models.FinalSiteInfo(s.siteInfoId, s.projectNumber, c.countyName, t.stateId, CONCAT(t.stateNumber, c.countyId, s.siteNumber) AS stateSiteNumber) " +
+        String sql = "SELECT NEW models.FinalSiteInfo(s.siteInfoId, s.projectNumber, s.accessionNumber, c.countyName, t.stateId, CONCAT(t.stateNumber, c.countyId, s.siteNumber) AS stateSiteNumber) " +
                 "FROM SiteInfo s " +
                 "JOIN County c ON c.countyId = s.countyId " +
                 "JOIN State t ON t.stateId = c.stateId " +

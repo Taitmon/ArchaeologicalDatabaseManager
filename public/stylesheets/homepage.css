@@ -1,0 +1,17 @@
+#old {
+    font-size: 150px;
+    font-family: "Papyrus";
+    font-weight: bold;
+
+}
+#tech {
+    font-size: 150px;
+    font-variant: small-caps;
+    font-family: "Courier New";
+    color: #ffff00;
+}
+
+
+body {
+    margin-top: 200px;
+}
