@@ -1,4 +1,4 @@
-Final Project for Arkansas Coding Academy
-
-
+# ArchaeoLogic
 An Archaeological Database Management System
+--------------------------------------------
+
