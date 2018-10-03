@@ -3,7 +3,7 @@ An Archaeological Database Management System that promotes data integrity and st
 a laboratory technician. All functionality demonstrated follows the guidlines and procedures required by the state of
 Arkansas. This program was created as a capstone project concluding my time at the Arkansas Coding Academy.
 
-![](https://postimg.cc/kBYj0ZGd)
+[![Home_Page.png](https://postimg.cc/kBYj0ZGd)
 
 ## Build Summary
 Tools used:
