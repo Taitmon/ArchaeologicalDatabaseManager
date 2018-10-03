@@ -15,5 +15,9 @@ Tools used:
 - Bootstrap
 
 ## Functionality
+The user can search through the each individual unit in the database
+[![Unit_Table.png](https://i.postimg.cc/KjJWpvKp/Unit_Table.png)](https://postimg.cc/SYYVJ4fc)
 
+By clicking on a unit, the user can add new artifacts, see/edit existing artifacts, or see the associated 
+catalog numbers
 
