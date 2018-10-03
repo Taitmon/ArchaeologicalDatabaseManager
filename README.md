@@ -2,9 +2,7 @@
 An Archaeological Database Management System that promotes data integrity and streamlines the data entry process for
 a laboratory technician. All functionality demonstrated follows the guidlines and procedures required by the state of
 Arkansas. This program was created as a capstone project concluding my time at the Arkansas Coding Academy.
-
 [![Home_Page.png](https://i.postimg.cc/tgBf894w/Home_Page.png)](https://postimg.cc/Z9yVdt3x)
-
 ## Build Summary
 Tools used:
 - Java
@@ -21,3 +19,6 @@ The user can search through the each individual unit in the database
 By clicking on a unit, the user can add new artifacts, see/edit existing artifacts, or see the associated 
 catalog numbers
 
+[![New_Artifact_Screen.png](https://i.postimg.cc/d3sQpB6s/New_Artifact_Screen.png)](https://postimg.cc/ZBQhy6X2)
+
+[![Existing_Artifacts.png](https://i.postimg.cc/T1b8kWMd/Existing_Artifacts.png)](https://postimg.cc/vxGSTTZk)
