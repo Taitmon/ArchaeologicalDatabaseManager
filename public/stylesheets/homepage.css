@@ -2,8 +2,8 @@
     font-size: 150px;
     font-family: "Papyrus";
     font-weight: bold;
-
 }
+
 #tech {
     font-size: 150px;
     font-variant: small-caps;
@@ -11,9 +11,11 @@
     color: #ffff00;
 }
 
-
-body {
+.home {
     margin-top: 200px;
-
 }
+
+
+
+
 
