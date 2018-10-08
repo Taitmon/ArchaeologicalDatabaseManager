@@ -2,12 +2,13 @@
     font-size: 150px;
     font-family: "Papyrus";
     font-weight: bold;
+    color: #000000;
 }
 
 #tech {
     font-size: 150px;
     font-variant: small-caps;
-    font-family: "Courier New";
+    font-family: "Orbitron";
     color: #ffff00;
 }
 
